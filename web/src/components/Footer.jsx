@@ -1,6 +1,5 @@
-
 import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Twitter, Youtube, MapPin, Phone, Mail, Heart, ArrowUp, Sparkles } from 'lucide-react';
+import { Facebook, Instagram, Twitter, Youtube, MapPin, Phone, Mail, Heart, ArrowUp, Sparkles, Shield } from 'lucide-react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
@@ -164,7 +163,6 @@ export default function Footer() {
                 transition={{ delay: 0.5 }}
                 className="flex items-center gap-2 text-accent/40 text-xs"
               >
-                {/* <Heart size={14} className="text-secondary/60" fill="#secondary/20" /> */}
                 <span>Making a difference together</span>
               </motion.div>
             </motion.div>
@@ -209,7 +207,7 @@ export default function Footer() {
                   className="flex items-start gap-3 text-accent/60 text-sm font-light group"
                 >
                   <MapPin size={16} className="text-secondary/60 group-hover:text-secondary transition-colors flex-shrink-0 mt-0.5" />
-                  <span>Shahrah-e-Faisal, Karachi</span>
+                  <span> Karachi</span>
                 </motion.li>
                 <motion.li 
                   variants={itemVariants}
@@ -218,7 +216,7 @@ export default function Footer() {
                 >
                   <Phone size={16} className="text-secondary/60 group-hover:text-secondary transition-colors flex-shrink-0" />
                   <a href="tel:+922134567890" className="hover:text-white transition-colors">
-                    +92 21 3456 7890
+                    +92 3161103616
                   </a>
                 </motion.li>
                 <motion.li 
@@ -228,7 +226,7 @@ export default function Footer() {
                 >
                   <Mail size={16} className="text-secondary/60 group-hover:text-secondary transition-colors flex-shrink-0" />
                   <a href="mailto:hello@astackfoundation.org" className="hover:text-white transition-colors">
-                    hello@astackfoundation.org
+                    astacksolutions@gmail.com
                   </a>
                 </motion.li>
               </ul>
@@ -294,7 +292,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
+        {/* Bottom Bar with Admin Login Icon */}
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -305,10 +303,33 @@ export default function Footer() {
             <p className="text-accent/40 text-xs font-light tracking-wide">
               © {new Date().getFullYear()} Astack Foundation. All rights reserved.
             </p>
-            <div className="flex items-center gap-6 text-accent/30 text-[10px] font-light tracking-wider uppercase">
-              <Link to="/privacy" className="hover:text-accent/60 transition-colors">Privacy Policy</Link>
-              <span className="w-px h-3 bg-white/5" />
-              <Link to="/terms" className="hover:text-accent/60 transition-colors">Terms of Service</Link>
+            <div className="flex items-center gap-6">
+              <div className="flex items-center gap-6 text-accent/30 text-[10px] font-light tracking-wider uppercase">
+                <Link to="/privacy" className="hover:text-accent/60 transition-colors">Privacy Policy</Link>
+                <span className="w-px h-3 bg-white/5" />
+                <Link to="/terms" className="hover:text-accent/60 transition-colors">Terms of Service</Link>
+              </div>
+              
+              {/* Admin Login Icon */}
+              <motion.div
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                whileTap={{ scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.6 }}
+                className="relative group"
+              >
+                <Link 
+                  to="/admin/login" 
+                  className="flex items-center gap-1.5 text-accent/30 hover:text-secondary transition-all duration-300"
+                  title="Admin Login"
+                >
+                  <Shield size={14} className="group-hover:text-secondary transition-colors" />
+                  <span className="text-[9px] font-light tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Admin
+                  </span>
+                </Link>
+              </motion.div>
             </div>
           </div>
         </motion.div>
